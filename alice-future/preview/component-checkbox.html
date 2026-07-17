@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkbox — Alice Future</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin: 0; padding: 12px; background: var(--color-background); font-family: var(--font-body); color: var(--color-foreground); }
+.row { display: flex; gap: var(--space-3); align-items: center; margin-bottom: var(--space-2); flex-wrap: wrap; }
+.label { display: inline-block; width: 92px; font-size: var(--font-size-caption); color: var(--color-muted-foreground); text-transform: uppercase; letter-spacing: var(--tracking-wider); flex-shrink: 0; }
+hr.divider { border: none; border-top: 1px solid var(--color-border); margin: var(--space-3) 0; }
+
+/* @component-css-start */
+.af-choice { display: inline-flex; align-items: center; gap: var(--space-2); cursor: pointer; user-select: none; }
+.af-choice-control { width: 20px; height: 20px; border: 2px solid var(--color-outline); background: transparent; display: inline-flex; align-items: center; justify-content: center; transition: var(--transition-color); flex-shrink: 0; }
+.af-choice-control.is-checkbox { border-radius: var(--radius-sm); }
+.af-choice-control.is-radio { border-radius: var(--radius-full); }
+.af-choice:hover .af-choice-control { border-color: var(--color-primary); }
+.af-choice.is-checked .af-choice-control.is-checkbox { border-color: var(--color-primary); background: var(--color-primary); box-shadow: var(--shadow-xs); }
+.af-choice.is-checked .af-choice-control.is-radio { border-color: var(--color-primary); }
+.af-choice-indicator { display: none; }
+.af-choice.is-checked .af-choice-control.is-checkbox .af-choice-indicator { display: block; width: 12px; height: 12px; border-radius: 1px; background: var(--color-on-primary); animation: af-scale-in var(--duration-hover) var(--ease-spring) both; }
+.af-choice.is-checked .af-choice-control.is-radio .af-choice-indicator { display: block; width: 10px; height: 10px; border-radius: var(--radius-full); background: var(--color-primary); box-shadow: var(--shadow-xs); animation: af-scale-in var(--duration-hover) var(--ease-spring) both; }
+.af-choice.is-indeterminate .af-choice-control.is-checkbox { border-color: var(--color-primary); background: var(--color-primary); box-shadow: var(--shadow-xs); }
+.af-choice.is-indeterminate .af-choice-control.is-checkbox .af-choice-indicator { display: block; width: 12px; height: 2px; border-radius: var(--radius-full); background: var(--color-on-primary); }
+.af-choice-label { font-family: var(--font-body); font-size: var(--font-size-body); color: var(--color-foreground); white-space: nowrap; }
+.af-choice.is-disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
+.af-choice.is-disabled .af-choice-control { pointer-events: none; }
+/* @component-css-end */
+</style>
+</head>
+<body>
+<div class="row">
+  <span class="label">Checkbox</span>
+  <label class="af-choice is-checked" data-evidence-sample="checkbox-checked">
+    <span class="af-choice-control is-checkbox"><span class="af-choice-indicator"></span></span>
+    <span class="af-choice-label">Enable AI memory</span>
+  </label>
+  <label class="af-choice" data-evidence-sample="checkbox-unchecked">
+    <span class="af-choice-control is-checkbox"><span class="af-choice-indicator"></span></span>
+    <span class="af-choice-label">Auto-save conversations</span>
+  </label>
+  <label class="af-choice is-indeterminate" data-evidence-sample="checkbox-indeterminate">
+    <span class="af-choice-control is-checkbox"><span class="af-choice-indicator"></span></span>
+    <span class="af-choice-label">Select all models</span>
+  </label>
+  <label class="af-choice is-disabled" data-evidence-sample="checkbox-disabled">
+    <span class="af-choice-control is-checkbox"><span class="af-choice-indicator"></span></span>
+    <span class="af-choice-label">Beta features</span>
+  </label>
+</div>
+<hr class="divider">
+<div class="row">
+  <span class="label">Radio</span>
+  <label class="af-choice is-checked" data-evidence-sample="radio-checked">
+    <span class="af-choice-control is-radio"><span class="af-choice-indicator"></span></span>
+    <span class="af-choice-label">Balanced mode</span>
+  </label>
+  <label class="af-choice" data-evidence-sample="radio-unchecked">
+    <span class="af-choice-control is-radio"><span class="af-choice-indicator"></span></span>
+    <span class="af-choice-label">Creative mode</span>
+  </label>
+</div>
+</body>
+</html>

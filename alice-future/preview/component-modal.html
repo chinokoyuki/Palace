@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modal — Alice Future</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+<style>
+body { margin: 0; padding: 12px; background: var(--color-background); font-family: var(--font-body); color: var(--color-foreground); }
+.row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+.label { font-size: var(--font-size-caption); color: var(--color-muted-foreground); text-transform: uppercase; letter-spacing: 0.08em; min-width: 92px; flex-shrink: 0; align-self: flex-start; padding-top: 4px; }
+.divider { border: none; border-top: 1px solid var(--color-border); margin: 8px 0; }
+.modal-stage { position: relative; width: 100%; height: 340px; border-radius: var(--radius-md); overflow: hidden; flex: 1; min-width: 0; background: var(--gradient-future); }
+
+/* @component-css-start */
+.af-modal-overlay { position: absolute; inset: 0; background: rgba(6,26,64,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; animation: af-fade-in var(--duration-fade) var(--ease-out) both; }
+.af-modal { background: var(--glass-light-bg); backdrop-filter: blur(var(--glass-light-blur)); -webkit-backdrop-filter: blur(var(--glass-light-blur)); border: 1px solid var(--glass-light-border); border-radius: var(--radius-card); box-shadow: var(--shadow-md); padding: var(--space-5); max-width: 480px; width: 90%; animation: af-scale-in var(--duration-scale) var(--ease-spring) both; }
+.af-modal-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-3); }
+.af-modal-title { font-family: var(--font-heading); font-size: var(--font-size-h3); font-weight: 600; line-height: 1.4; margin: 0; color: var(--color-foreground); }
+.af-modal-close { display: inline-flex; align-items: center; justify-content: center; width: var(--size-icon-md); height: var(--size-icon-md); min-width: var(--size-icon-md); background: transparent; border: none; cursor: pointer; color: var(--color-muted-foreground); border-radius: var(--radius-sm); flex-shrink: 0; transition: color var(--duration-hover) var(--ease-out), background var(--duration-hover) var(--ease-out); }
+.af-modal-close:hover { color: var(--color-foreground); background: var(--color-outline); }
+.af-modal-body { font-family: var(--font-body); font-size: var(--font-size-body); line-height: 1.5; color: var(--color-muted); }
+/* @component-css-end */
+</style>
+</head>
+<body>
+<div class="row">
+  <span class="label">Report</span>
+  <div class="modal-stage" data-evidence-sample="glass-report">
+    <div class="af-modal-overlay">
+      <div class="af-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-1">
+        <div class="af-modal-header">
+          <h2 class="af-modal-title" id="modal-title-1">Intelligence Report</h2>
+          <button class="af-modal-close" aria-label="Close"><i data-lucide="x" style="width:20px;height:20px"></i></button>
+        </div>
+        <div class="af-modal-body">Analysis complete. 3 insights found in your data.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="divider">
+<div class="row">
+  <span class="label">Confirm</span>
+  <div class="modal-stage" data-evidence-sample="glass-confirm">
+    <div class="af-modal-overlay">
+      <div class="af-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-2">
+        <div class="af-modal-header">
+          <h2 class="af-modal-title" id="modal-title-2">Deploy Model</h2>
+          <button class="af-modal-close" aria-label="Close"><i data-lucide="x" style="width:20px;height:20px"></i></button>
+        </div>
+        <div class="af-modal-body">Push the selected model to production? This will rerank live inference traffic.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>lucide.createIcons();</script>
+</body>
+</html>

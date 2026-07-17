@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badge — Alice Future</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 12px; background: var(--color-background); font-family: var(--font-body); color: var(--color-foreground); }
+  .row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+  .label { display: inline-block; width: 92px; flex-shrink: 0; font-size: var(--font-size-caption); font-weight: var(--font-weight-semibold); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--color-muted); }
+  .divider { border: none; border-top: 1px solid var(--color-border); margin: 8px 0; }
+
+  /* @component-css-start */
+  .af-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: var(--radius-button); font-size: var(--font-size-caption); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug); white-space: nowrap; min-width: 28px; transition: filter var(--duration-hover) var(--ease-out); }
+  .af-badge:hover { filter: brightness(1.05); }
+  .af-badge-default { background: var(--color-surface); color: var(--color-muted); }
+  .af-badge-success { background: var(--color-success-soft); color: var(--color-success); }
+  .af-badge-warning { background: var(--color-warning-soft); color: var(--color-warning); }
+  .af-badge-error { background: var(--color-error-soft); color: var(--color-error); }
+  .af-badge-info { background: var(--color-info-soft); color: var(--color-info); }
+  .af-badge-ai { background: var(--glass-blue-bg); color: var(--color-primary); box-shadow: var(--shadow-xs); }
+  .af-badge-dot { width: 8px; height: 8px; border-radius: var(--radius-full); background: currentColor; flex-shrink: 0; animation: af-pulse 1.5s var(--ease-smooth) ease-in-out infinite; }
+  /* @component-css-end */
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="label">Status</span>
+    <span class="af-badge af-badge-default">Draft</span>
+    <span class="af-badge af-badge-success">Operational</span>
+    <span class="af-badge af-badge-warning">Review</span>
+    <span class="af-badge af-badge-error">Failed</span>
+    <span class="af-badge af-badge-info">Syncing</span>
+    <span class="af-badge af-badge-ai">AI Active</span>
+  </div>
+  <hr class="divider">
+  <div class="row">
+    <span class="label">With Dot</span>
+    <span class="af-badge af-badge-success"><span class="af-badge-dot"></span>Operational</span>
+    <span class="af-badge af-badge-info"><span class="af-badge-dot"></span>Syncing</span>
+    <span class="af-badge af-badge-ai"><span class="af-badge-dot"></span>AI Active</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toggle — Alice Future</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin: 0; padding: 12px; background: var(--color-background); font-family: var(--font-body); color: var(--color-foreground); }
+.row { display: flex; gap: var(--space-3); align-items: center; margin-bottom: var(--space-2); }
+.label { font-size: var(--font-size-caption); color: var(--color-foreground); min-width: 168px; white-space: nowrap; }
+.divider { border: none; border-top: 1px solid var(--color-border); margin: var(--space-3) 0; }
+
+/* @component-css-start */
+.af-toggle { width: 44px; height: 26px; border-radius: var(--radius-button); border: none; cursor: pointer; position: relative; background: var(--color-outline); transition: var(--transition-color); flex-shrink: 0; padding: 0; }
+.af-toggle:hover { filter: brightness(1.08); }
+.af-toggle.on { background: var(--color-primary); box-shadow: var(--shadow-xs); }
+.af-toggle.ai.on { box-shadow: var(--shadow-ai-glow); }
+.af-toggle:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
+.af-toggle-knob { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: var(--radius-full); background: var(--color-on-primary); transition: transform var(--duration-hover) var(--ease-spring); }
+.af-toggle.on .af-toggle-knob { transform: translateX(18px); }
+/* @component-css-end */
+</style>
+</head>
+<body>
+<div class="row"><span class="label">Auto-analysis</span><button class="af-toggle on" aria-pressed="true" data-evidence-sample="default-on"><span class="af-toggle-knob"></span></button></div>
+<div class="row"><span class="label">Memory persistence</span><button class="af-toggle" aria-pressed="false" data-evidence-sample="default-off"><span class="af-toggle-knob"></span></button></div>
+<div class="row"><span class="label">Adaptive responses</span><button class="af-toggle" disabled aria-pressed="false" data-evidence-sample="default-disabled"><span class="af-toggle-knob"></span></button></div>
+<hr class="divider">
+<div class="row"><span class="label">AI Core breathing</span><button class="af-toggle ai on" aria-pressed="true" data-evidence-sample="ai-on"><span class="af-toggle-knob"></span></button></div>
+<div class="row"><span class="label">Neural sync</span><button class="af-toggle ai" aria-pressed="false" data-evidence-sample="ai-off"><span class="af-toggle-knob"></span></button></div>
+</body>
+</html>

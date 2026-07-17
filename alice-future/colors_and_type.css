@@ -1,0 +1,293 @@
+/* Source: structured-spec */
+/* Alice Future Design Library — Pure Intelligence · Living Technology */
+/* Theme: light-dark */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* @group-priority: alice-blue, deep-space, glass */
+
+  /* alice-blue — Light Theme Primary Colors */
+  --alice-light: #F7FBFF;   /* 页面背景 page background (lighter) */
+  --alice-sky: #8FD3FF;     /* 品牌主色 brand primary */
+  --future-blue: #3BA7FF;  /* 主要交互 primary interaction */
+  --core-blue: #1769AA;     /* 强调状态 emphasis state */
+
+  /* deep-space — Dark Theme Contrast Colors */
+  --deep-space: #061A40;   /* 主背景 main background */
+  --night-blue: #172554;   /* 卡片背景 card background */
+  --ocean-shadow: #0F3D66; /* 组件层 component layer */
+  --void-blue: #020617;    /* 最高对比 maximum contrast */
+
+  /* glass — Apple Vision Pro Style Material System */
+  --glass-light-bg: rgba(255,255,255,0.65);
+  --glass-light-blur: 30px;
+  --glass-light-border: rgba(255,255,255,0.5);
+  --glass-blue-bg: rgba(143,211,255,0.18);
+  --glass-blue-blur: 40px;
+
+  /* accent — Semantic & Future Gradient */
+  --gradient-future: linear-gradient(135deg, #F0F8FF, #8FD3FF, #3BA7FF); /* hero, AI core, loading */
+  --bg: var(--alice-light);
+  --fg: var(--core-blue);
+  --accent: #3ba7ff;
+  --border: rgba(23,105,170,0.12);
+
+  /* Portable aliases — consumed by components / previews / UIKit */
+  --color-primary: var(--future-blue);
+  --color-primary-hover: var(--core-blue);
+  --color-on-primary: #ffffff;
+  --color-background: var(--alice-light);
+  --color-surface: rgba(255,255,255,0.7);
+  --color-surface-variant: var(--alice-sky);
+  --color-foreground: var(--core-blue);
+  --color-on-surface: var(--color-foreground);
+  --color-muted: rgba(23,105,170,0.6);
+  --color-muted-foreground: rgba(23,105,170,0.5);
+  --color-border: rgba(23,105,170,0.12);
+  --color-outline: rgba(23,105,170,0.2);
+  --color-accent: var(--alice-sky);
+  --color-card: rgba(255,255,255,0.7);
+  --color-glow: rgba(59,167,255,0.35);
+  --color-sky: var(--alice-sky);
+
+  /* State colors — semantic feedback */
+  --color-success: #34C759;
+  --color-success-soft: rgba(52,199,89,0.12);
+  --color-warning: #FF9F0A;
+  --color-warning-soft: rgba(255,159,10,0.12);
+  --color-error: #FF3B30;
+  --color-error-soft: rgba(255,59,48,0.12);
+  --color-info: var(--future-blue);
+  --color-info-soft: rgba(59,167,255,0.12);
+
+  /* Typography */
+  --font-display: 'SF Pro Display', 'Inter', -apple-system, sans-serif;
+  --font-heading: 'SF Pro Display', 'Inter', -apple-system, sans-serif;
+  --font-body: 'SF Pro Text', 'Inter', -apple-system, sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', monospace;
+
+  --font-size-display: 56px;
+  --font-size-h1: 48px;
+  --font-size-h2: 32px;
+  --font-size-h3: 24px;
+  --font-size-body: 16px;
+  --font-size-caption: 13px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Letter-spacing scale */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.01em;
+  --tracking-wider: 0.04em;
+  --tracking-widest: 0.08em;
+
+  /* Line-height scale */
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.3;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 1.8;
+
+  /* Portable type aliases */
+  --type-display: var(--font-display);
+  --type-heading: var(--font-heading);
+  --type-body: var(--font-body);
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-input: var(--radius-md);
+  --radius-card: var(--radius-lg);
+  --radius-button: 999px;
+  --radius-full: 9999px;
+
+  /* Border width */
+  --border-width-sm: 1px;
+  --border-width-md: 2px;
+  --border-width-lg: 3px;
+
+  /* Opacity — interaction states */
+  --opacity-disabled: 0.5;
+  --opacity-hover: 0.85;
+  --opacity-active: 0.7;
+  --opacity-medium: 0.6;
+  --opacity-faint: 0.3;
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px rgba(59,167,255,0.15);
+  --focus-ring-visible: 0 0 0 3px rgba(59,167,255,0.25);
+
+  /* Z-index scale */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 900;
+  --z-modal: 1000;
+  --z-tooltip: 1100;
+
+  /* Shadows — Apple-style large area, low opacity, soft diffusion */
+  --shadow-xs: 0px 2px 8px rgba(23,105,170,0.08); /* Button Label */
+  --shadow-sm: 0px 8px 24px rgba(23,105,170,0.12); /* Card */
+  --shadow-md: 0px 16px 40px rgba(23,105,170,0.18); /* Floating Window */
+  --shadow-ai-glow: 0px 0px 50px rgba(59,167,255,0.35); /* AI Core Glow */
+
+  /* Motion */
+  --duration-hover: 200ms;
+  --duration-transition: 300ms;
+  --duration-page: 500ms;
+  --duration-ai: 2000ms;
+  --duration-fade: 400ms;
+  --duration-slide: 400ms;
+  --duration-scale: 300ms;
+  --duration-float: 3s;
+  --duration-shimmer: 1.5s;
+  --duration-spin: 1s;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Transition shorthand tokens */
+  --transition-fast: var(--duration-hover) var(--ease-out);
+  --transition-normal: var(--duration-transition) var(--ease-out);
+  --transition-slow: var(--duration-page) var(--ease-smooth);
+  --transition-spring: var(--duration-transition) var(--ease-spring);
+  --transition-color: color var(--duration-hover) var(--ease-smooth), background var(--duration-hover) var(--ease-smooth), border-color var(--duration-hover) var(--ease-smooth);
+  --transition-shadow: box-shadow var(--duration-hover) var(--ease-out);
+  --transition-transform: transform var(--duration-hover) var(--ease-spring);
+
+  /* Layout */
+  --grid-columns: 12;
+  --max-content: 1200px;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --gutter-sm: 16px;
+  --gutter-md: 24px;
+  --gutter-lg: 32px;
+
+  /* Sizing */
+  --size-icon-xs: 14px;
+  --size-icon-sm: 16px;
+  --size-icon-md: 24px;
+  --size-icon-lg: 32px;
+  --size-button-sm: 36px;
+  --size-button-md: 44px;
+  --size-button-lg: 52px;
+  --size-button-height: var(--size-button-md);
+  --size-input-height: 48px;
+  --size-nav-height: 64px;
+}
+
+.dark {
+  /* deep-space overrides */
+  --color-background: var(--deep-space);
+  --color-surface: var(--night-blue);
+  --color-surface-variant: var(--ocean-shadow);
+  --color-foreground: #e8f4ff;
+  --color-muted: rgba(143,211,255,0.6);
+  --color-muted-foreground: rgba(143,211,255,0.4);
+  --color-border: rgba(143,211,255,0.12);
+  --color-outline: rgba(143,211,255,0.2);
+  --color-card: rgba(23,37,84,0.7);
+  --color-accent: var(--alice-sky);
+}
+
+/* Typography utility classes — af- (Alice Future) */
+.af-display {
+  font-family: var(--font-display);
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.af-h1 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.af-h2 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+.af-h3 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--tracking-normal);
+}
+
+.af-body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--tracking-normal);
+}
+
+.af-caption {
+  font-family: var(--font-body);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--tracking-wide);
+}
+
+.af-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* Keyframe Animations — Living Technology */
+@keyframes af-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes af-slide-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes af-slide-down { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes af-scale-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes af-pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.05); opacity: 1; } }
+@keyframes af-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes af-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes af-glow-pulse { 0%, 100% { box-shadow: 0 0 20px rgba(59,167,255,0.15); } 50% { box-shadow: 0 0 40px rgba(59,167,255,0.35); } }
+@keyframes af-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes af-ring-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Animation utility classes */
+.af-animate-fade-in { animation: af-fade-in var(--duration-fade) var(--ease-out) both; }
+.af-animate-slide-up { animation: af-slide-up var(--duration-slide) var(--ease-out) both; }
+.af-animate-slide-down { animation: af-slide-down var(--duration-slide) var(--ease-out) both; }
+.af-animate-scale-in { animation: af-scale-in var(--duration-scale) var(--ease-spring) both; }
+.af-animate-float { animation: af-float var(--duration-float) var(--ease-smooth) ease-in-out infinite; }
+.af-animate-spin { animation: af-spin var(--duration-spin) linear infinite; }
+.af-animate-glow { animation: af-glow-pulse var(--duration-ai) var(--ease-smooth) ease-in-out infinite; }

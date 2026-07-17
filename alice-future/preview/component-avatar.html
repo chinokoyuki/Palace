@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avatar — Alice Future</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin: 0; padding: 12px; background: var(--color-background); font-family: var(--font-body); color: var(--color-on-surface); }
+.row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+.label { width: 92px; flex-shrink: 0; font-size: var(--font-size-caption); font-weight: var(--font-weight-semibold); color: var(--color-muted-foreground); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+hr.divider { border: none; border-top: 1px solid var(--color-border); margin: 12px 0; }
+
+/* @component-css-start */
+.af-avatar { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); font-weight: var(--font-weight-semibold); font-size: var(--font-size-caption); position: relative; flex-shrink: 0; }
+.af-avatar-default { background: var(--gradient-future); color: var(--color-on-primary); box-shadow: var(--shadow-xs); }
+.af-avatar-ai { background: radial-gradient(circle, var(--alice-sky), var(--future-blue)); color: var(--color-on-primary); box-shadow: var(--shadow-ai-glow); }
+.af-avatar-sm { width: 24px; height: 24px; }
+.af-avatar-md { width: 36px; height: 36px; }
+.af-avatar-lg { width: 48px; height: 48px; }
+.af-avatar-group { display: inline-flex; align-items: center; }
+.af-avatar-group .af-avatar { margin-left: -8px; border: 2px solid var(--color-background); }
+.af-avatar-group .af-avatar:first-child { margin-left: 0; }
+.af-avatar-status { position: absolute; bottom: 0; right: 0; width: 8px; height: 8px; border-radius: var(--radius-full); border: 2px solid var(--color-background); box-sizing: content-box; }
+.af-avatar-online { background: var(--color-success); }
+.af-avatar-busy { background: var(--color-error); }
+.af-avatar-offline { background: var(--color-muted-foreground); }
+/* @component-css-end */
+</style>
+</head>
+<body>
+<div class="row" data-evidence-sample="default-md"><span class="label">Default</span><div class="af-avatar af-avatar-default af-avatar-md">AF</div></div>
+<div class="row" data-evidence-sample="ai-lg"><span class="label">AI</span><div class="af-avatar af-avatar-ai af-avatar-lg">AI</div></div>
+<div class="row" data-evidence-sample="group-md"><span class="label">Group</span><div class="af-avatar-group"><div class="af-avatar af-avatar-default af-avatar-md">AF</div><div class="af-avatar af-avatar-ai af-avatar-md">AI</div><div class="af-avatar af-avatar-default af-avatar-md">JD</div></div></div>
+<hr class="divider">
+<div class="row" data-evidence-sample="sizes"><span class="label">Sizes</span><div class="af-avatar af-avatar-default af-avatar-sm">AF</div><div class="af-avatar af-avatar-default af-avatar-md">AF</div><div class="af-avatar af-avatar-default af-avatar-lg">AF</div></div>
+<div class="row" data-evidence-sample="status-online"><span class="label">Online</span><div class="af-avatar af-avatar-default af-avatar-md">AF<span class="af-avatar-status af-avatar-online"></span></div></div>
+<div class="row" data-evidence-sample="status-busy"><span class="label">Busy</span><div class="af-avatar af-avatar-default af-avatar-md">AF<span class="af-avatar-status af-avatar-busy"></span></div></div>
+<div class="row" data-evidence-sample="status-offline"><span class="label">Offline</span><div class="af-avatar af-avatar-default af-avatar-md">AF<span class="af-avatar-status af-avatar-offline"></span></div></div>
+</body>
+</html>

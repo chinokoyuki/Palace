@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+node_modules
+docs/.vitepress/dist
+docs/.vitepress/cache
+*.log
+.env
+.env.local
+.idea
+.vscode/*
+!.vscode/extensions.json

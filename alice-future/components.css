@@ -1,0 +1,303 @@
+/* ═══════════════════════════════════════════════════════════════
+   components.css — Design System Component Definitions
+   Auto-extracted from preview/component-*.html
+   DO NOT EDIT MANUALLY — regenerate via extract-components-css.mjs
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Ai Core ───────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Alice AI</span> <div class="af-ai-core sm" data-evidence-sample="active"><div class="af-ai-core-glow">
+*/
+/* Component definitions — extracted to components.css by deterministic script */
+.af-ai-core { position: relative; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); flex-shrink: 0; animation: af-scale-in var(--duration-scale) var(--ease-spring) both; }
+.af-ai-core-glow { position: absolute; inset: 0; border-radius: var(--radius-full); box-shadow: var(--shadow-ai-glow); animation: af-pulse var(--duration-ai) var(--ease-smooth) infinite alternate; pointer-events: none; }
+.af-ai-core-sphere { position: relative; border-radius: var(--radius-full); background: var(--glass-blue-bg); backdrop-filter: blur(var(--glass-blue-blur)); -webkit-backdrop-filter: blur(var(--glass-blue-blur)); display: flex; align-items: center; justify-content: center; z-index: 1; }
+.af-ai-core-center { border-radius: var(--radius-full); background: radial-gradient(circle, var(--alice-sky), var(--future-blue)); animation: af-pulse var(--duration-ai) var(--ease-smooth) infinite alternate; }
+.af-ai-core.sm { width: 48px; height: 48px; }
+.af-ai-core.sm .af-ai-core-center { width: 24px; height: 24px; }
+.af-ai-core.md { width: 96px; height: 96px; }
+.af-ai-core.md .af-ai-core-center { width: 48px; height: 48px; }
+.af-ai-core.lg { width: 160px; height: 160px; }
+.af-ai-core.lg .af-ai-core-center { width: 80px; height: 80px; }
+.af-ai-core.thinking .af-ai-core-glow { animation: af-pulse 1s var(--ease-smooth) infinite alternate; }
+.af-ai-core.thinking .af-ai-core-center { animation: af-pulse 1s var(--ease-smooth) infinite alternate; }
+.af-ai-core .orbit { position: absolute; inset: 0; border-radius: var(--radius-full); animation: af-ring-rotate 2s linear infinite; z-index: 2; }
+.af-ai-core .particle { position: absolute; width: 6px; height: 6px; border-radius: var(--radius-full); background: var(--alice-sky); top: 50%; left: 50%; margin: -3px 0 0 -3px; opacity: 0.85; }
+.af-ai-core .particle:nth-child(1) { transform: rotate(0deg) translateX(36px); }
+.af-ai-core .particle:nth-child(2) { transform: rotate(120deg) translateX(36px); }
+.af-ai-core .particle:nth-child(3) { transform: rotate(240deg) translateX(36px); }
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.05); opacity: 1; } }
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+/* af-pulse and af-ring-rotate keyframes are defined in colors_and_type.css */
+
+/* ── Alert ─────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Info</span> <div class="af-alert af-alert-info" data-evidence-sample="info"> <span class="af-alert-icon"><i data-lucide="info"></i></span> <div class="af-alert-content"> <span class="af-alert-title">System update</span> <p class="af-alert-body">Alice will restart in 5 minutes.</p>
+*/
+.af-alert { display: flex; gap: var(--space-3); align-items: flex-start; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--color-border); backdrop-filter: blur(var(--glass-light-blur)); flex: 1; min-width: 0; }
+  .af-alert-icon { width: 24px; height: 24px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; }
+  .af-alert-icon svg { width: 24px; height: 24px; display: block; }
+  .af-alert-content { flex: 1; min-width: 0; }
+  .af-alert-title { display: block; font-family: var(--font-heading); font-size: var(--font-size-body); font-weight: var(--font-weight-semibold); color: var(--color-foreground); line-height: var(--line-height-tight); }
+  .af-alert-body { margin: 2px 0 0 0; font-family: var(--font-body); font-size: var(--font-size-caption); color: var(--color-muted); line-height: var(--line-height-normal); overflow-wrap: break-word; }
+  .af-alert-close { width: 24px; height: 24px; flex-shrink: 0; min-width: 24px; padding: 0; border: none; background: transparent; color: var(--color-muted-foreground); cursor: pointer; border-radius: var(--radius-xs); display: inline-flex; align-items: center; justify-content: center; transition: background var(--duration-hover) var(--ease-smooth), color var(--duration-hover) var(--ease-smooth); }
+  .af-alert-close:hover { background: var(--color-outline); color: var(--color-foreground); }
+  .af-alert-close svg { width: 16px; height: 16px; display: block; }
+  .af-alert-info { background: var(--color-info-soft); border-color: rgba(59,167,255,0.2); }
+  .af-alert-info .af-alert-icon { color: var(--color-info); }
+  .af-alert-success { background: var(--color-success-soft); border-color: rgba(52,199,89,0.2); }
+  .af-alert-success .af-alert-icon { color: var(--color-success); }
+  .af-alert-warning { background: var(--color-warning-soft); border-color: rgba(255,159,10,0.2); }
+  .af-alert-warning .af-alert-icon { color: var(--color-warning); }
+  .af-alert-error { background: var(--color-error-soft); border-color: rgba(255,59,48,0.2); }
+  .af-alert-error .af-alert-icon { color: var(--color-error); }
+  .af-alert-ai { background: var(--glass-blue-bg); border-color: var(--glass-light-border); box-shadow: var(--shadow-xs); }
+  .af-alert-ai .af-alert-icon { color: var(--color-accent); }
+
+/* ── Avatar ────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Default</span><div class="af-avatar af-avatar-default af-avatar-md">AF
+*/
+.af-avatar { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); font-weight: var(--font-weight-semibold); font-size: var(--font-size-caption); position: relative; flex-shrink: 0; }
+.af-avatar-default { background: var(--gradient-future); color: var(--color-on-primary); box-shadow: var(--shadow-xs); }
+.af-avatar-ai { background: radial-gradient(circle, var(--alice-sky), var(--future-blue)); color: var(--color-on-primary); box-shadow: var(--shadow-ai-glow); }
+.af-avatar-sm { width: 24px; height: 24px; }
+.af-avatar-md { width: 36px; height: 36px; }
+.af-avatar-lg { width: 48px; height: 48px; }
+.af-avatar-group { display: inline-flex; align-items: center; }
+.af-avatar-group .af-avatar { margin-left: -8px; border: 2px solid var(--color-background); }
+.af-avatar-group .af-avatar:first-child { margin-left: 0; }
+.af-avatar-status { position: absolute; bottom: 0; right: 0; width: 8px; height: 8px; border-radius: var(--radius-full); border: 2px solid var(--color-background); box-sizing: content-box; }
+.af-avatar-online { background: var(--color-success); }
+.af-avatar-busy { background: var(--color-error); }
+.af-avatar-offline { background: var(--color-muted-foreground); }
+
+/* ── Badge ─────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Status</span> <span class="af-badge af-badge-default">Draft</span> <span class="af-badge af-badge-success">Operational</span> <span class="af-badge af-badge-warning">Review</span> <span class="af-badge af-badge-error">Failed</span> <span class="af-badge af-badge-info">Syncing</span> <span class="af-badge af-badge-ai">AI Active</span>
+*/
+.af-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: var(--radius-button); font-size: var(--font-size-caption); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug); white-space: nowrap; min-width: 28px; transition: filter var(--duration-hover) var(--ease-out); }
+  .af-badge:hover { filter: brightness(1.05); }
+  .af-badge-default { background: var(--color-surface); color: var(--color-muted); }
+  .af-badge-success { background: var(--color-success-soft); color: var(--color-success); }
+  .af-badge-warning { background: var(--color-warning-soft); color: var(--color-warning); }
+  .af-badge-error { background: var(--color-error-soft); color: var(--color-error); }
+  .af-badge-info { background: var(--color-info-soft); color: var(--color-info); }
+  .af-badge-ai { background: var(--glass-blue-bg); color: var(--color-primary); box-shadow: var(--shadow-xs); }
+  .af-badge-dot { width: 8px; height: 8px; border-radius: var(--radius-full); background: currentColor; flex-shrink: 0; animation: af-pulse 1.5s var(--ease-smooth) ease-in-out infinite; }
+
+/* ── Button ────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Primary</span><button class="af-btn af-btn-primary af-btn-md"><span class="af-btn-label">Start Analysis</span></button><button class="af-btn af-btn-primary af-btn-md"><span class="af-btn-label">Ask Alice</span></button><button class="af-btn af-btn-primary af-btn-md"><span class="af-btn-label">Activate AI</span></button>
+*/
+.af-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-1); border: none; cursor: pointer; font-family: var(--font-body); font-weight: var(--font-weight-semibold); border-radius: var(--radius-button); white-space: nowrap; transition: filter var(--duration-transition) var(--ease-out), transform var(--duration-transition) var(--ease-out), background var(--duration-transition) var(--ease-out); flex-shrink: 0; }
+.af-btn-label { white-space: nowrap; }
+.af-btn-primary { background: var(--color-primary); color: var(--color-on-primary); box-shadow: var(--shadow-xs); }
+.af-btn-secondary { background: var(--glass-light-bg); backdrop-filter: blur(var(--glass-light-blur)); -webkit-backdrop-filter: blur(var(--glass-light-blur)); color: var(--color-primary); border: 1px solid var(--color-border); }
+.af-btn-ghost { background: transparent; color: var(--color-primary); }
+.af-btn-primary:hover { filter: brightness(1.1); transform: scale(1.02); box-shadow: var(--shadow-ai-glow); }
+.af-btn-secondary:hover, .af-btn-ghost:hover { filter: brightness(1.05); transform: scale(1.02); }
+.af-btn-ghost:hover { background: rgba(59,167,255,0.08); filter: none; transform: none; }
+.af-btn:disabled { opacity: 0.5; cursor: not-allowed; filter: none; transform: none; box-shadow: none; }
+.af-btn-sm { height: 36px; min-width: 36px; padding: 8px 20px; font-size: var(--font-size-caption); }
+.af-btn-md { height: var(--size-button-height); min-width: var(--size-button-height); padding: 12px 32px; font-size: var(--font-size-body); }
+.af-btn-lg { height: 52px; min-width: 52px; padding: 14px 40px; font-size: var(--font-size-h3); }
+
+/* ── Card ──────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Glass Light</span><div class="af-card glass-light" data-evidence-sample="glass-light"><h3 class="af-card-title">Memory Module</h3><div class="af-card-body">8,492 tokens active in context window
+*/
+.af-card { width: 100%; border-radius: var(--radius-card); padding: var(--space-4); transition: box-shadow var(--duration-hover) var(--ease-out), transform var(--duration-hover) var(--ease-out); animation: af-slide-up var(--duration-slide) var(--ease-out) both; }
+.af-card-title { margin: 0 0 var(--space-2) 0; font-family: var(--font-heading); font-size: var(--font-size-h3); font-weight: 600; line-height: 1.4; color: var(--color-foreground); }
+.af-card-body { margin: 0; font-family: var(--font-body); font-size: var(--font-size-body); font-weight: 400; line-height: 1.5; color: var(--color-muted); }
+.af-card.glass-light { background: var(--glass-light-bg); backdrop-filter: blur(var(--glass-light-blur)); -webkit-backdrop-filter: blur(var(--glass-light-blur)); border: 1px solid var(--glass-light-border); box-shadow: var(--shadow-sm); }
+.af-card.glass-light:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.af-card.glass-blue { background: var(--glass-blue-bg); backdrop-filter: blur(var(--glass-blue-blur)); -webkit-backdrop-filter: blur(var(--glass-blue-blur)); box-shadow: var(--shadow-ai-glow); }
+.af-card.glass-blue:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.af-card.solid { background: var(--color-card); box-shadow: var(--shadow-sm); }
+.af-card.solid:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+
+/* ── Checkbox ──────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Checkbox</span> <label class="af-choice is-checked" data-evidence-sample="checkbox-checked"> <span class="af-choice-control is-checkbox"><span class="af-choice-indicator"></span></span> <span class="af-choice-label">Enable AI memory</span> </label> <label class="af-choice" data-evidence-sample="checkbox-unchecked"> <span class="af-choice-control is-checkbox"><span class="af-...
+*/
+.af-choice { display: inline-flex; align-items: center; gap: var(--space-2); cursor: pointer; user-select: none; }
+.af-choice-control { width: 20px; height: 20px; border: 2px solid var(--color-outline); background: transparent; display: inline-flex; align-items: center; justify-content: center; transition: var(--transition-color); flex-shrink: 0; }
+.af-choice-control.is-checkbox { border-radius: var(--radius-sm); }
+.af-choice-control.is-radio { border-radius: var(--radius-full); }
+.af-choice:hover .af-choice-control { border-color: var(--color-primary); }
+.af-choice.is-checked .af-choice-control.is-checkbox { border-color: var(--color-primary); background: var(--color-primary); box-shadow: var(--shadow-xs); }
+.af-choice.is-checked .af-choice-control.is-radio { border-color: var(--color-primary); }
+.af-choice-indicator { display: none; }
+.af-choice.is-checked .af-choice-control.is-checkbox .af-choice-indicator { display: block; width: 12px; height: 12px; border-radius: 1px; background: var(--color-on-primary); animation: af-scale-in var(--duration-hover) var(--ease-spring) both; }
+.af-choice.is-checked .af-choice-control.is-radio .af-choice-indicator { display: block; width: 10px; height: 10px; border-radius: var(--radius-full); background: var(--color-primary); box-shadow: var(--shadow-xs); animation: af-scale-in var(--duration-hover) var(--ease-spring) both; }
+.af-choice.is-indeterminate .af-choice-control.is-checkbox { border-color: var(--color-primary); background: var(--color-primary); box-shadow: var(--shadow-xs); }
+.af-choice.is-indeterminate .af-choice-control.is-checkbox .af-choice-indicator { display: block; width: 12px; height: 2px; border-radius: var(--radius-full); background: var(--color-on-primary); }
+.af-choice-label { font-family: var(--font-body); font-size: var(--font-size-body); color: var(--color-foreground); white-space: nowrap; }
+.af-choice.is-disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
+.af-choice.is-disabled .af-choice-control { pointer-events: none; }
+
+/* ── Dropdown ──────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Closed</span> <div class="af-dropdown" data-evidence-sample="default-closed"> <button class="af-dropdown-trigger" type="button"> <span>Alice Pro</span> <svg class="af-dropdown-icon"><use href="#af-icon-chevron-down"/></svg> </button>
+*/
+.af-dropdown { position: relative; display: inline-block; }
+.af-dropdown-trigger { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-foreground); font-family: var(--font-body); font-size: var(--font-size-body); cursor: pointer; min-width: 180px; transition: var(--transition-color); }
+.af-dropdown-trigger:hover { border-color: var(--color-primary); }
+.af-dropdown-trigger.is-open { border-color: var(--color-primary); }
+.af-dropdown-trigger.glass { background: var(--glass-light-bg); backdrop-filter: blur(var(--glass-light-blur)); -webkit-backdrop-filter: blur(var(--glass-light-blur)); border: 1px solid var(--glass-light-border); }
+.af-dropdown-trigger.glass:hover { border-color: var(--color-primary); }
+.af-dropdown-trigger[disabled] { opacity: var(--opacity-disabled); cursor: not-allowed; }
+.af-dropdown-trigger[disabled]:hover { border-color: var(--color-border); }
+.af-dropdown-icon { width: 20px; height: 20px; flex-shrink: 0; color: var(--color-muted); transition: transform var(--duration-hover) var(--ease-out), color var(--duration-hover) var(--ease-out); }
+.af-dropdown-trigger:hover .af-dropdown-icon { color: var(--color-primary); }
+.af-dropdown-trigger.is-open .af-dropdown-icon { transform: rotate(180deg); color: var(--color-primary); }
+.af-dropdown-menu { position: absolute; top: calc(100% + 4px); left: 0; min-width: 100%; padding: var(--space-1); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--shadow-md); z-index: var(--z-dropdown); animation: af-slide-down var(--duration-hover) var(--ease-out) both; }
+.af-dropdown-option { padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); font-size: var(--font-size-body); color: var(--color-foreground); cursor: pointer; transition: var(--transition-color); white-space: nowrap; }
+.af-dropdown-option:hover { background: var(--color-info-soft); color: var(--color-primary); }
+.af-dropdown-option.is-selected { background: var(--color-info-soft); color: var(--color-primary); font-weight: var(--font-weight-semibold); }
+
+/* ── Input ─────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Default</span><input class="af-input" type="text" placeholder="Ask Alice anything..." data-evidence-sample="default-ask-alice">
+*/
+.af-input { min-width: 120px; flex-shrink: 0; background: var(--color-surface); color: var(--color-foreground); border: 1px solid var(--color-border); border-radius: var(--radius-input); padding: 12px 16px; font-family: var(--font-body); font-size: var(--font-size-body); outline: none; transition: border-color var(--duration-hover) var(--ease-spring), box-shadow var(--duration-hover) var(--ease-spring); }
+.af-input::placeholder { color: var(--color-muted-foreground); }
+.af-input:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(59,167,255,0.15), 0 0 16px rgba(59,167,255,0.12); animation: af-glow-pulse var(--duration-ai) var(--ease-smooth) ease-in-out infinite; }
+.af-input:disabled { opacity: 0.5; cursor: not-allowed; }
+.af-input.glass { background: var(--glass-light-bg); backdrop-filter: blur(var(--glass-light-blur)); -webkit-backdrop-filter: blur(var(--glass-light-blur)); border: 1px solid var(--glass-light-border); }
+.af-input.glass:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(59,167,255,0.15); }
+.af-input-wrap { position: relative; display: inline-flex; align-items: center; flex-shrink: 0; }
+.af-input-icon { position: absolute; left: 14px; width: 18px; height: 18px; color: var(--color-muted); pointer-events: none; }
+.af-input.has-icon { padding-left: 40px; }
+
+/* ── Modal ─────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Report</span> <div class="modal-stage" data-evidence-sample="glass-report"> <div class="af-modal-overlay"> <div class="af-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-1"> <div class="af-modal-header"> <h2 class="af-modal-title" id="modal-title-1">Intelligence Report</h2> <button class="af-modal-close" aria-label="Close"><i data-lucide="x" style="width:...
+*/
+.af-modal-overlay { position: absolute; inset: 0; background: rgba(6,26,64,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; animation: af-fade-in var(--duration-fade) var(--ease-out) both; }
+.af-modal { background: var(--glass-light-bg); backdrop-filter: blur(var(--glass-light-blur)); -webkit-backdrop-filter: blur(var(--glass-light-blur)); border: 1px solid var(--glass-light-border); border-radius: var(--radius-card); box-shadow: var(--shadow-md); padding: var(--space-5); max-width: 480px; width: 90%; animation: af-scale-in var(--duration-scale) var(--ease-spring) both; }
+.af-modal-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-3); }
+.af-modal-title { font-family: var(--font-heading); font-size: var(--font-size-h3); font-weight: 600; line-height: 1.4; margin: 0; color: var(--color-foreground); }
+.af-modal-close { display: inline-flex; align-items: center; justify-content: center; width: var(--size-icon-md); height: var(--size-icon-md); min-width: var(--size-icon-md); background: transparent; border: none; cursor: pointer; color: var(--color-muted-foreground); border-radius: var(--radius-sm); flex-shrink: 0; transition: color var(--duration-hover) var(--ease-out), background var(--duration-hover) var(--ease-out); }
+.af-modal-close:hover { color: var(--color-foreground); background: var(--color-outline); }
+.af-modal-body { font-family: var(--font-body); font-size: var(--font-size-body); line-height: 1.5; color: var(--color-muted); }
+
+/* ── Navigation ────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Floating</span>
+*/
+.af-nav { display: flex; justify-content: space-between; align-items: center; width: 100%; height: var(--size-nav-height); padding: var(--space-2) var(--space-4); background: var(--glass-light-bg); backdrop-filter: blur(var(--glass-light-blur)); -webkit-backdrop-filter: blur(var(--glass-light-blur)); border: 1px solid var(--glass-light-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); box-sizing: border-box; animation: af-slide-down var(--duration-slide) var(--ease-out) both; }
+  .af-nav-logo { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-heading); font-weight: var(--font-weight-semibold); font-size: var(--font-size-body); color: var(--color-foreground); white-space: nowrap; }
+  .af-nav-logo .mark { width: 28px; height: 28px; border-radius: var(--radius-sm); background: var(--gradient-future); box-shadow: var(--shadow-xs); flex-shrink: 0; }
+  .af-nav-menu { display: flex; align-items: center; gap: var(--space-1); flex-shrink: 0; }
+  .af-nav-item { display: inline-flex; align-items: center; padding: var(--space-2) var(--space-3); font-size: var(--font-size-caption); font-weight: var(--font-weight-medium); color: var(--color-muted); border-radius: var(--radius-md); white-space: nowrap; cursor: pointer; text-decoration: none; transition: background var(--duration-hover) var(--ease-smooth), transform var(--duration-hover) var(--ease-spring); }
+  .af-nav-item:hover { background: var(--glass-blue-bg); transform: translateY(-1px); }
+  .af-nav-item.is-active { color: var(--color-primary); background: var(--glass-blue-bg); }
+  .af-nav-user { display: inline-flex; align-items: center; gap: var(--space-2); flex-shrink: 0; }
+  .af-nav-avatar { width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--gradient-future); display: inline-flex; align-items: center; justify-content: center; font-size: var(--font-size-caption); font-weight: var(--font-weight-semibold); color: var(--color-on-primary); flex-shrink: 0; box-shadow: var(--shadow-xs); }
+  .af-nav-pill { display: inline-flex; align-items: center; gap: var(--space-1); padding: var(--space-2) var(--space-4); background: var(--glass-light-bg); backdrop-filter: blur(var(--glass-light-blur)); -webkit-backdrop-filter: blur(var(--glass-light-blur)); border: 1px solid var(--glass-light-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+
+/* ── Progress ──────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Linear</span> <div class="progress-stage"> <div class="af-progress"><div class="af-progress-track linear"><div class="af-progress-fill linear" style="width:65%">
+*/
+.af-progress { flex: 1; display: flex; align-items: center; min-width: 0; }
+.af-progress-track.linear { width: 100%; height: 6px; background: var(--color-outline); border-radius: var(--radius-full); overflow: hidden; }
+.af-progress-fill.linear { height: 100%; border-radius: var(--radius-full); background: var(--gradient-future); transition: width var(--duration-page) var(--ease-smooth); }
+.af-progress-circular { position: relative; width: 48px; height: 48px; flex-shrink: 0; }
+.af-progress-circular .track { position: absolute; inset: 0; border: 3px solid var(--color-outline); border-radius: var(--radius-full); }
+.af-progress-circular .fill { position: absolute; inset: 0; border: 3px solid var(--color-primary); border-radius: var(--radius-full); border-top-color: transparent; animation: af-spin 1s linear infinite; }
+.af-progress-track.ai-pulse { width: 100%; height: 4px; background: var(--glass-blue-bg); border-radius: var(--radius-full); overflow: hidden; position: relative; }
+.af-progress-fill.ai-pulse { position: absolute; inset: 0; background-color: var(--color-primary); background-image: linear-gradient(90deg, transparent, var(--color-primary), transparent); background-size: 200% 100%; box-shadow: var(--shadow-ai-glow); animation: af-shimmer 1.5s linear infinite; }
+.af-progress-label { font-size: var(--font-size-caption); color: var(--color-foreground); font-weight: var(--font-weight-medium); white-space: nowrap; }
+
+/* ── Skeleton ──────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Text</span> <div class="stage"> <div class="af-skeleton af-skeleton-text">
+*/
+.af-skeleton { background: linear-gradient(90deg, var(--color-outline) 0%, var(--color-surface-variant) 50%, var(--color-outline) 100%); background-size: 200% 100%; animation: af-shimmer var(--duration-shimmer) linear infinite; }
+  .af-skeleton-text { height: 16px; width: 100%; border-radius: var(--radius-sm); }
+  .af-skeleton-text.w-80 { width: 80%; }
+  .af-skeleton-text.w-60 { width: 60%; }
+  .af-skeleton-rect { width: 100%; height: 120px; border-radius: var(--radius-md); }
+  .af-skeleton-circle { width: 48px; height: 48px; border-radius: var(--radius-full); flex-shrink: 0; }
+  .af-skeleton-card { width: 100%; border-radius: var(--radius-card); padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); background: var(--color-card); box-shadow: var(--shadow-sm); }
+  .af-skeleton-card .card-head { display: flex; align-items: center; gap: var(--space-3); }
+  .af-skeleton-card .card-lines { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+
+/* ── Slider ────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Temperature — 60°</span><div class="af-slider"><div class="af-slider-track"><div class="af-slider-fill" style="width:60%">
+*/
+.af-slider { flex: 1; min-width: 0; width: 100%; position: relative; padding: var(--space-2) 0; }
+.af-slider-track { width: 100%; height: 4px; border-radius: var(--radius-full); background: var(--color-outline); position: relative; }
+.af-slider-fill { height: 100%; border-radius: var(--radius-full); background: var(--color-primary); transition: width var(--duration-hover) var(--ease-smooth); }
+.af-slider-thumb { position: absolute; top: 50%; width: 18px; height: 18px; border-radius: var(--radius-full); background: var(--color-on-primary); border: 2px solid var(--color-primary); transform: translate(-50%, -50%); box-shadow: var(--shadow-xs); transition: transform var(--duration-hover) var(--ease-spring); cursor: grab; }
+.af-slider-thumb:hover { transform: translate(-50%, -50%) scale(1.15); }
+.af-slider-fill.ai { background: var(--gradient-future); box-shadow: var(--shadow-ai-glow); }
+.af-slider-thumb.ai { border-color: var(--color-primary); box-shadow: var(--shadow-ai-glow); }
+.af-slider.disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
+.af-slider.disabled .af-slider-thumb { cursor: not-allowed; }
+.af-slider.disabled .af-slider-thumb:hover { transform: translate(-50%, -50%); }
+
+/* ── Stat ──────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Default</span><div class="af-stat" data-evidence-sample="default-total-requests"><span class="af-stat-label">Total Requests</span><div class="af-stat-value">1.2M
+*/
+.af-stat { width: 100%; padding: var(--space-4); border-radius: var(--radius-card); background: var(--color-surface); border: 1px solid var(--color-border); display: flex; flex-direction: column; gap: var(--space-1); box-sizing: border-box; }
+.af-stat-label { font-family: var(--font-body); font-size: var(--font-size-caption); color: var(--color-muted-foreground); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+.af-stat-value { font-family: var(--font-heading); font-size: var(--font-size-h1); font-weight: var(--font-weight-bold); color: var(--color-foreground); line-height: var(--line-height-tight); letter-spacing: var(--tracking-tight); }
+.af-stat-trend { font-size: var(--font-size-caption); font-weight: var(--font-weight-semibold); }
+.af-stat-trend.up { color: var(--color-success); }
+.af-stat-trend.down { color: var(--color-error); }
+.af-stat-trend.neutral { color: var(--color-muted); }
+.af-stat.glass { background: var(--glass-light-bg); backdrop-filter: blur(var(--glass-light-blur)); -webkit-backdrop-filter: blur(var(--glass-light-blur)); border: 1px solid var(--glass-light-border); box-shadow: var(--shadow-xs); }
+.af-stat.ai { background: var(--glass-blue-bg); backdrop-filter: blur(var(--glass-blue-blur)); -webkit-backdrop-filter: blur(var(--glass-blue-blur)); border: 1px solid var(--glass-light-border); box-shadow: var(--shadow-xs); }
+.af-stat.ai .af-stat-value { color: var(--color-primary); }
+
+/* ── Tabs ──────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Underline</span> <div class="af-tabs-underline" data-evidence-sample="underline-overview"> <button class="af-tab is-active">Overview</button> <button class="af-tab">Memory</button> <button class="af-tab">Analysis</button>
+*/
+.af-tabs-underline { display: flex; gap: var(--space-1); border-bottom: 1px solid var(--color-border); }
+  .af-tab { padding: var(--space-2) var(--space-3); background: transparent; border: none; border-bottom: 2px solid transparent; color: var(--color-muted); font-family: var(--font-body); font-size: var(--font-size-body); font-weight: var(--font-weight-medium); cursor: pointer; transition: var(--transition-color); white-space: nowrap; flex-shrink: 0; margin-bottom: -1px; }
+  .af-tab:hover { color: var(--color-foreground); }
+  .af-tab.is-active { color: var(--color-primary); border-bottom-color: var(--color-primary); font-weight: var(--font-weight-semibold); }
+  .af-tabs-pill { display: inline-flex; gap: var(--space-1); padding: var(--space-1); background: var(--color-surface); border-radius: var(--radius-button); }
+  .af-tab--pill { padding: var(--space-2) var(--space-4); border: none; background: transparent; border-radius: var(--radius-button); color: var(--color-muted); font-family: var(--font-body); font-size: var(--font-size-caption); font-weight: var(--font-weight-medium); cursor: pointer; transition: var(--transition-color); white-space: nowrap; flex-shrink: 0; }
+  .af-tab--pill:hover { color: var(--color-foreground); }
+  .af-tab--pill.is-active { background: var(--color-primary); color: var(--color-on-primary); box-shadow: var(--shadow-xs); }
+  .af-tabs-glass { display: inline-flex; gap: var(--space-1); padding: var(--space-1); background: var(--glass-light-bg); backdrop-filter: blur(var(--glass-light-blur)); -webkit-backdrop-filter: blur(var(--glass-light-blur)); border: 1px solid var(--glass-light-border); border-radius: var(--radius-button); }
+  .af-tab--glass { padding: var(--space-2) var(--space-4); border: none; background: transparent; border-radius: var(--radius-button); color: var(--color-muted); font-family: var(--font-body); font-size: var(--font-size-caption); font-weight: var(--font-weight-medium); cursor: pointer; transition: var(--transition-color); white-space: nowrap; flex-shrink: 0; }
+  .af-tab--glass:hover { color: var(--color-foreground); }
+  .af-tab--glass.is-active { background: var(--color-primary); color: var(--color-on-primary); box-shadow: var(--shadow-xs); }
+
+/* ── Toggle ────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Auto-analysis</span><button class="af-toggle on" aria-pressed="true" data-evidence-sample="default-on"><span class="af-toggle-knob"></span></button>
+*/
+.af-toggle { width: 44px; height: 26px; border-radius: var(--radius-button); border: none; cursor: pointer; position: relative; background: var(--color-outline); transition: var(--transition-color); flex-shrink: 0; padding: 0; }
+.af-toggle:hover { filter: brightness(1.08); }
+.af-toggle.on { background: var(--color-primary); box-shadow: var(--shadow-xs); }
+.af-toggle.ai.on { box-shadow: var(--shadow-ai-glow); }
+.af-toggle:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
+.af-toggle-knob { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: var(--radius-full); background: var(--color-on-primary); transition: transform var(--duration-hover) var(--ease-spring); }
+.af-toggle.on .af-toggle-knob { transform: translateX(18px); }
+
+/* ── Tooltip ───────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Default</span> <div class="tip-host" data-evidence-sample="default-top"> <span class="tip-trigger">8,492 tokens</span> <div class="af-tooltip af-tooltip-top af-tooltip-default" role="tooltip"> <span class="af-tooltip-text">Memory usage: 8,492 tokens</span> <div class="af-tooltip-arrow">
+*/
+.tip-host { position: relative; display: inline-flex; align-items: center; min-height: 32px; flex-shrink: 0; }
+  .tip-trigger { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: var(--font-size-caption); font-weight: var(--font-weight-medium); color: var(--color-foreground); white-space: nowrap; cursor: default; transition: background var(--duration-hover) var(--ease-smooth), border-color var(--duration-hover) var(--ease-smooth); }
+  .tip-trigger:hover { background: var(--color-info-soft); border-color: var(--color-outline); }
+  .af-tooltip { position: absolute; left: 50%; transform: translateX(-50%); max-width: 240px; z-index: var(--z-tooltip); box-shadow: var(--shadow-sm); font-size: var(--font-size-caption); font-weight: var(--font-weight-medium); white-space: nowrap; }
+  .af-tooltip-top { bottom: calc(100% + 8px); }
+  .af-tooltip-bottom { top: calc(100% + 8px); }
+  .af-tooltip-text { display: block; }
+  .af-tooltip-default { background: var(--core-blue); color: #ffffff; padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); }
+  .af-tooltip-glass { background: var(--glass-light-bg); backdrop-filter: blur(var(--glass-light-blur)); -webkit-backdrop-filter: blur(var(--glass-light-blur)); border: 1px solid var(--glass-light-border); color: var(--color-foreground); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); }
+  .af-tooltip-arrow { position: absolute; left: 50%; transform: translateX(-50%); width: 0; height: 0; }
+  .af-tooltip-top .af-tooltip-arrow { bottom: -5px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid var(--core-blue); }
+  .af-tooltip-bottom .af-tooltip-arrow { top: -5px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid var(--glass-light-border); }

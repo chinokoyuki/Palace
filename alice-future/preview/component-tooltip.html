@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tooltip — Alice Future</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px 16px; background: var(--color-background); font-family: var(--font-body); color: var(--color-foreground); }
+  .row { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; padding: 30px 0; flex-wrap: wrap; }
+  .label { width: 92px; flex-shrink: 0; font-size: 11px; font-weight: var(--font-weight-semibold); text-transform: uppercase; letter-spacing: var(--tracking-wider); color: var(--color-muted); }
+  .divider { border: none; border-top: 1px solid var(--color-border); margin: 4px 0; }
+
+  /* @component-css-start */
+  .tip-host { position: relative; display: inline-flex; align-items: center; min-height: 32px; flex-shrink: 0; }
+  .tip-trigger { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: var(--font-size-caption); font-weight: var(--font-weight-medium); color: var(--color-foreground); white-space: nowrap; cursor: default; transition: background var(--duration-hover) var(--ease-smooth), border-color var(--duration-hover) var(--ease-smooth); }
+  .tip-trigger:hover { background: var(--color-info-soft); border-color: var(--color-outline); }
+  .af-tooltip { position: absolute; left: 50%; transform: translateX(-50%); max-width: 240px; z-index: var(--z-tooltip); box-shadow: var(--shadow-sm); font-size: var(--font-size-caption); font-weight: var(--font-weight-medium); white-space: nowrap; }
+  .af-tooltip-top { bottom: calc(100% + 8px); }
+  .af-tooltip-bottom { top: calc(100% + 8px); }
+  .af-tooltip-text { display: block; }
+  .af-tooltip-default { background: var(--core-blue); color: #ffffff; padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); }
+  .af-tooltip-glass { background: var(--glass-light-bg); backdrop-filter: blur(var(--glass-light-blur)); -webkit-backdrop-filter: blur(var(--glass-light-blur)); border: 1px solid var(--glass-light-border); color: var(--color-foreground); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); }
+  .af-tooltip-arrow { position: absolute; left: 50%; transform: translateX(-50%); width: 0; height: 0; }
+  .af-tooltip-top .af-tooltip-arrow { bottom: -5px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid var(--core-blue); }
+  .af-tooltip-bottom .af-tooltip-arrow { top: -5px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid var(--glass-light-border); }
+  /* @component-css-end */
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="label">Default</span>
+    <div class="tip-host" data-evidence-sample="default-top">
+      <span class="tip-trigger">8,492 tokens</span>
+      <div class="af-tooltip af-tooltip-top af-tooltip-default" role="tooltip">
+        <span class="af-tooltip-text">Memory usage: 8,492 tokens</span>
+        <div class="af-tooltip-arrow"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <span class="label">Default</span>
+    <div class="tip-host" data-evidence-sample="default-top">
+      <span class="tip-trigger">GPT-4o</span>
+      <div class="af-tooltip af-tooltip-top af-tooltip-default" role="tooltip">
+        <span class="af-tooltip-text">Model: GPT-4o · 128k context</span>
+        <div class="af-tooltip-arrow"></div>
+      </div>
+    </div>
+  </div>
+  <hr class="divider">
+  <div class="row">
+    <span class="label">Glass</span>
+    <div class="tip-host" data-evidence-sample="glass-bottom">
+      <span class="tip-trigger">Analyzing…</span>
+      <div class="af-tooltip af-tooltip-bottom af-tooltip-glass" role="tooltip">
+        <span class="af-tooltip-text">Alice is analyzing your request</span>
+        <div class="af-tooltip-arrow"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <span class="label">Glass</span>
+    <div class="tip-host" data-evidence-sample="glass-bottom">
+      <span class="tip-trigger">Streaming</span>
+      <div class="af-tooltip af-tooltip-bottom af-tooltip-glass" role="tooltip">
+        <span class="af-tooltip-text">Streaming response · 42 tok/s</span>
+        <div class="af-tooltip-arrow"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
