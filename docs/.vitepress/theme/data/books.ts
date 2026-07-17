@@ -35,6 +35,8 @@ const cppSideBar: BookSection[] = [
       { text: '函数', link: '/book/cpp/grammar/12_functions' },
       { text: '指针', link: '/book/cpp/grammar/13_pointers' },
       { text: '结构体', link: '/book/cpp/grammar/14_structures' },
+      { text: '内存模型', link: '/book/cpp/grammar/15_memory_model' },
+      { text: '引用', link: '/book/cpp/grammar/16_references' },
     ],
   },
   {
@@ -66,6 +68,34 @@ const stm32HalSidBar: BookSection[] = [
   }
 ]
 
+const pythonSideBar: BookSection[] = [
+  {
+    text: '语法',
+    collapsed: false,
+    items: [
+      { text: '介绍', link: '/book/python/grammar/1_introduction' },
+      { text: '基础语法', link: '/book/python/grammar/2_basic_syntax' },
+      { text: '注释', link: '/book/python/grammar/3_comments' },
+      { text: '数据类型', link: '/book/python/grammar/4_data_types' },
+      { text: '变量', link: '/book/python/grammar/5_variables' },
+      { text: '运算符', link: '/book/python/grammar/6_operators' },
+      { text: '列表', link: '/book/python/grammar/7_lists' },
+      { text: '字典', link: '/book/python/grammar/8_dictionaries' },
+      { text: 'for 循环', link: '/book/python/grammar/9_for_loops' },
+      { text: 'while 循环', link: '/book/python/grammar/10_while_loops' },
+      { text: '格式化字符串', link: '/book/python/grammar/11_formatted_strings' },
+      { text: '函数', link: '/book/python/grammar/12_functions' },
+      { text: '引入模块', link: '/book/python/grammar/13_importing_modules' },
+      { text: '类', link: '/book/python/grammar/14_classes' },
+      { text: '文件', link: '/book/python/grammar/15_files' },
+      { text: '报错处理', link: '/book/python/grammar/16_exceptions' },
+      { text: '测试', link: '/book/python/grammar/17_testing' },
+      { text: '模块', link: '/book/python/grammar/18_modules' },
+      { text: '包', link: '/book/python/grammar/19_packages' },
+    ],
+  },
+]
+
 /**
  * 所有书本数据。
  *
@@ -87,6 +117,14 @@ export const bookCategories: BookCategory[] = [
         sidebars: {
           '/book/cpp/grammar/': cppSideBar,
           '/book/cpp/leetcode/': cppSideBar
+        },
+      },
+      {
+        title: 'Python',
+        desc: 'Python 语言开发与实践',
+        link: '/book/python/grammar/1_introduction',
+        sidebars: {
+          '/book/python/grammar/': pythonSideBar,
         },
       },
     ],

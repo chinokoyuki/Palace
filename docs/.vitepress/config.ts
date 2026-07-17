@@ -24,8 +24,8 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    logo: '/KoyukiChan.png',
-    siteTitle: 'Koyuki Palace',
+    // logo: '/KoyukiChan.png',
+    siteTitle: 'KOYUKI PALACE',
 
     nav: [
       { text: '关于', link: '/about' },
@@ -45,7 +45,7 @@ export default defineConfig({
       provider: 'local',
     },
 
-    socialLinks: [],
+    // socialLinks: [],
 
     footer: {
       message: 'Built with VitePress · Koyuki Palace',
