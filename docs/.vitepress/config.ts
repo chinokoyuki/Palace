@@ -5,7 +5,7 @@ export default defineConfig({
   title: 'Koyuki Palace',
   description: 'Koyuki Palace — 纯净智能，有生命的科技',
   lang: 'zh-CN',
-  lastUpdated: true,
+  lastUpdated: false,
   cleanUrls: true,
 
   markdown: {
