@@ -3,7 +3,7 @@ import { bookSidebars } from './theme/data/books'
 
 export default defineConfig({
   title: 'Koyuki Palace',
-  description: 'Koyuki Palace — 纯净智能，有生命的科技',
+  description: 'Science and Engineering Knowledge Base - Wisdom takes many forms, and we have long coveting the secrets of wisdom.',
   lang: 'zh-CN',
   lastUpdated: false,
   cleanUrls: true,
