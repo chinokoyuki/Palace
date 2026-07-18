@@ -68,7 +68,7 @@ const stm32HalSidBar: BookSection[] = [
   },
   {
     text: 'HAL 方法详解',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: 'GPIO 方法', link: '/book/embedded/stm32-hal/methods/gpio' },
       { text: 'UART 方法', link: '/book/embedded/stm32-hal/methods/uart' },
@@ -118,6 +118,62 @@ const dsSideBar: BookSection[] = [
     items: [
       { text: '1.1 数据结构的基本概念', link: '/book/ds/intro/1_1_basic_concepts' },
       { text: '1.2 算法和算法评价', link: '/book/ds/intro/1_2_algorithm' },
+    ],
+  },
+]
+
+const harmonySideBar: BookSection[] = [
+  {
+    text: 'ArkTS',
+    collapsed: false,
+    items: [
+      { text: 'ArkTS 简介', link: '/book/harmony/arkts/1_intro' },
+      { text: '基础语法', link: '/book/harmony/arkts/2_basic_syntax' },
+      { text: '数据类型', link: '/book/harmony/arkts/3_data_types' },
+      { text: '运算符与流程控制', link: '/book/harmony/arkts/4_operators_and_flow' },
+      { text: '函数', link: '/book/harmony/arkts/5_functions' },
+      { text: '类与接口', link: '/book/harmony/arkts/6_classes_and_interfaces' },
+      { text: '装饰器', link: '/book/harmony/arkts/7_decorators' },
+      { text: '状态管理', link: '/book/harmony/arkts/8_state_management' },
+      { text: '生命周期', link: '/book/harmony/arkts/9_lifecycle' },
+      { text: '实战：待办数据层', link: '/book/harmony/arkts/10_todo_data_layer' },
+      { text: '严格模式限制', link: '/book/harmony/arkts/11_arkts_restrictions' },
+    ],
+  },
+  {
+    text: '仓颉',
+    collapsed: true,
+    items: [
+      { text: '仓颉简介', link: '/book/harmony/cangjie/1_intro' },
+      { text: '基础语法', link: '/book/harmony/cangjie/2_basic_syntax' },
+      { text: '数据类型', link: '/book/harmony/cangjie/3_data_types' },
+      { text: '运算符与流程控制', link: '/book/harmony/cangjie/4_operators_and_flow' },
+      { text: '函数', link: '/book/harmony/cangjie/5_functions' },
+      { text: '类与接口', link: '/book/harmony/cangjie/6_classes_and_interfaces' },
+      { text: '模式匹配', link: '/book/harmony/cangjie/7_pattern_matching' },
+      { text: '异常处理', link: '/book/harmony/cangjie/8_exception_handling' },
+      { text: '泛型与扩展', link: '/book/harmony/cangjie/9_generics_and_extend' },
+      { text: '并发编程', link: '/book/harmony/cangjie/10_concurrency' },
+    ],
+  },
+  {
+    text: 'ArkUI',
+    collapsed: true,
+    items: [
+      { text: 'ArkUI 简介', link: '/book/harmony/arkui/1_intro' },
+      { text: '基础组件', link: '/book/harmony/arkui/2_basic_components' },
+      { text: '布局系统', link: '/book/harmony/arkui/3_layout' },
+      { text: '常用组件', link: '/book/harmony/arkui/4_common_components' },
+      { text: '事件处理', link: '/book/harmony/arkui/5_events' },
+      { text: '状态驱动 UI', link: '/book/harmony/arkui/6_state_driven' },
+      { text: '自定义组件', link: '/book/harmony/arkui/7_custom_components' },
+      { text: '动画', link: '/book/harmony/arkui/8_animation' },
+      { text: '实战：待办列表界面', link: '/book/harmony/arkui/9_todo_ui' },
+      { text: '导航与路由', link: '/book/harmony/arkui/10_navigation_routing' },
+      { text: '应用级状态管理', link: '/book/harmony/arkui/11_appstorage_persistence' },
+      { text: '渲染控制', link: '/book/harmony/arkui/12_rendering_control' },
+      { text: '更多组件', link: '/book/harmony/arkui/13_more_components' },
+      { text: '响应式布局', link: '/book/harmony/arkui/14_responsive_layout' },
     ],
   },
 ]
@@ -179,6 +235,19 @@ export const bookCategories: BookCategory[] = [
           '/book/embedded/stm32-hal': stm32HalSidBar
         }
       }
+    ]
+  },
+  {
+    title: '软件开发',
+    books: [
+      {
+        title: '鸿蒙软件开发',
+        desc: 'HarmonyOS 应用开发',
+        link: '/book/harmony/arkts/1_intro',
+        sidebars: {
+          '/book/harmony/': harmonySideBar,
+        },
+      },
     ]
   }
 ]
