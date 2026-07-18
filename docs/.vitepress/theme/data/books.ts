@@ -65,6 +65,20 @@ const stm32HalSidBar: BookSection[] = [
       { text: '定时器与 PWM', link: '/book/embedded/stm32-hal/8_timer' },
       { text: 'ADC 模数转换', link: '/book/embedded/stm32-hal/9_adc' },
     ]
+  },
+  {
+    text: 'HAL 方法详解',
+    collapsed: false,
+    items: [
+      { text: 'GPIO 方法', link: '/book/embedded/stm32-hal/methods/gpio' },
+      { text: 'UART 方法', link: '/book/embedded/stm32-hal/methods/uart' },
+      { text: 'I2C 方法', link: '/book/embedded/stm32-hal/methods/i2c' },
+      { text: 'SPI 方法', link: '/book/embedded/stm32-hal/methods/spi' },
+      { text: '定时器方法', link: '/book/embedded/stm32-hal/methods/timer' },
+      { text: 'ADC 方法', link: '/book/embedded/stm32-hal/methods/adc' },
+      { text: 'NVIC 方法', link: '/book/embedded/stm32-hal/methods/nvic' },
+      { text: '系统方法', link: '/book/embedded/stm32-hal/methods/system' },
+    ]
   }
 ]
 
@@ -92,6 +106,18 @@ const pythonSideBar: BookSection[] = [
       { text: '测试', link: '/book/python/grammar/17_testing' },
       { text: '模块', link: '/book/python/grammar/18_modules' },
       { text: '包', link: '/book/python/grammar/19_packages' },
+      { text: 'JSON 数据格式转换', link: '/book/python/grammar/20_json' },
+    ],
+  },
+]
+
+const dsSideBar: BookSection[] = [
+  {
+    text: '绪论',
+    collapsed: false,
+    items: [
+      { text: '1.1 数据结构的基本概念', link: '/book/ds/intro/1_1_basic_concepts' },
+      { text: '1.2 算法和算法评价', link: '/book/ds/intro/1_2_algorithm' },
     ],
   },
 ]
@@ -125,6 +151,19 @@ export const bookCategories: BookCategory[] = [
         link: '/book/python/grammar/1_introduction',
         sidebars: {
           '/book/python/grammar/': pythonSideBar,
+        },
+      },
+    ],
+  },
+  {
+    title: '计算机',
+    books: [
+      {
+        title: '数据结构',
+        desc: '数据结构与算法基础',
+        link: '/book/ds/intro/1_1_basic_concepts',
+        sidebars: {
+          '/book/ds/': dsSideBar,
         },
       },
     ],
