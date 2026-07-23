@@ -37,6 +37,7 @@ const cppSideBar: BookSection[] = [
       { text: '结构体', link: '/book/cpp/grammar/14_structures' },
       { text: '内存模型', link: '/book/cpp/grammar/15_memory_model' },
       { text: '引用', link: '/book/cpp/grammar/16_references' },
+      { text: '函数高级', link: '/book/cpp/grammar/17_advanced_functions' },
     ],
   },
   {
