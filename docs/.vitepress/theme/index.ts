@@ -4,6 +4,7 @@ import { onMounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vitepress'
 import AIHero from './components/AIHero.vue'
 import BooksPage from './components/BooksPage.vue'
+import EChartsDemo from './components/EChartsDemo.vue'
 import './styles/alice-future.css'
 import './styles/overrides.css'
 
@@ -41,6 +42,7 @@ export default {
   enhanceApp({ app }) {
     app.component('AIHero', AIHero)
     app.component('BooksPage', BooksPage)
+    app.component('EChartsDemo', EChartsDemo)
   },
   setup() {
     const route = useRoute()

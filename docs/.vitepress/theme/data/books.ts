@@ -38,6 +38,7 @@ const cppSideBar: BookSection[] = [
       { text: '内存模型', link: '/book/cpp/grammar/15_memory_model' },
       { text: '引用', link: '/book/cpp/grammar/16_references' },
       { text: '函数高级', link: '/book/cpp/grammar/17_advanced_functions' },
+      { text: '封装', link: '/book/cpp/grammar/18_encapsulation' },
     ],
   },
   {
@@ -108,6 +109,13 @@ const pythonSideBar: BookSection[] = [
       { text: '模块', link: '/book/python/grammar/18_modules' },
       { text: '包', link: '/book/python/grammar/19_packages' },
       { text: 'JSON 数据格式转换', link: '/book/python/grammar/20_json' },
+    ],
+  },
+  {
+    text: '模块',
+    collapsed: false,
+    items: [
+      { text: 'PyECharts 数据可视化', link: '/book/python/modules/1_pyecharts' },
     ],
   },
 ]
@@ -208,6 +216,7 @@ export const bookCategories: BookCategory[] = [
         link: '/book/python/grammar/1_introduction',
         sidebars: {
           '/book/python/grammar/': pythonSideBar,
+          '/book/python/modules/': pythonSideBar,
         },
       },
     ],
@@ -233,7 +242,7 @@ export const bookCategories: BookCategory[] = [
         desc: '基于HAL库的STM32嵌入式开发与实践',
         link: '/book/embedded/stm32-hal/1_hello',
         sidebars: {
-          '/book/embedded/stm32-hal': stm32HalSidBar
+          '/book/embedded/stm32-hal/': stm32HalSidBar
         }
       }
     ]
