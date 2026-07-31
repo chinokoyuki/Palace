@@ -95,6 +95,8 @@ bar = (
 bar.render("first_bar_chart.html")
 ```
 
+<EChartsDemo :option="firstBarOption" />
+
 运行后，当前目录会生成 `first_bar_chart.html`。用浏览器打开即可查看交互式图表。
 
 ## 核心对象与设计思想
@@ -167,6 +169,8 @@ bar = (
 bar.render("grouped_bar.html")
 ```
 
+<EChartsDemo :option="barOption" />
+
 #### 堆叠柱状图
 
 通过为每个系列设置相同的 `stack` 值实现堆叠：
@@ -187,6 +191,8 @@ bar = (
 bar.render("stacked_bar.html")
 ```
 
+<EChartsDemo :option="stackedBarOption" />
+
 #### 水平柱状图
 
 通过 `reversal_axis()` 将坐标轴反转：
@@ -202,6 +208,8 @@ bar = (
 )
 bar.render("horizontal_bar.html")
 ```
+
+<EChartsDemo :option="horizontalBarOption" />
 
 ### 折线图 Line
 
@@ -226,6 +234,8 @@ line = (
 line.render("line_chart.html")
 ```
 
+<EChartsDemo :option="lineOption" />
+
 #### 平滑曲线与面积图
 
 ```python
@@ -245,6 +255,8 @@ line = (
 line.render("smooth_area_line.html")
 ```
 
+<EChartsDemo :option="smoothAreaLineOption" />
+
 #### 阶梯图
 
 ```python
@@ -256,6 +268,8 @@ line = (
 )
 line.render("step_line.html")
 ```
+
+<EChartsDemo :option="stepLineOption" />
 
 ### 饼图 Pie
 
@@ -284,6 +298,8 @@ pie = (
 pie.render("pie_chart.html")
 ```
 
+<EChartsDemo :option="pieOption" />
+
 #### 环形图
 
 通过 `radius` 参数设置内外半径：
@@ -302,6 +318,8 @@ pie = (
 pie.render("donut_chart.html")
 ```
 
+<EChartsDemo :option="donutPieOption" />
+
 #### 南丁格尔玫瑰图
 
 ```python
@@ -317,6 +335,8 @@ pie = (
 )
 pie.render("rose_chart.html")
 ```
+
+<EChartsDemo :option="rosePieOption" />
 
 ### 散点图 Scatter
 
@@ -350,6 +370,8 @@ scatter = (
 scatter.render("scatter_chart.html")
 ```
 
+<EChartsDemo :option="scatterOption" />
+
 ### 雷达图 Radar
 
 雷达图用于展示多维数据：
@@ -374,6 +396,8 @@ radar = (
 )
 radar.render("radar_chart.html")
 ```
+
+<EChartsDemo :option="radarOption" />
 
 ### 热力图 Heatmap
 
@@ -403,6 +427,8 @@ heatmap = (
 heatmap.render("heatmap_chart.html")
 ```
 
+<EChartsDemo :option="heatmapOption" />
+
 ### 地图 Map
 
 地图适合展示地理分布数据：
@@ -424,6 +450,8 @@ map_chart = (
 )
 map_chart.render("map_chart.html")
 ```
+
+<EChartsDemo v-if="mapReady" :option="mapOption" height="500px" />
 
 ### 其他常用图表
 
@@ -468,6 +496,8 @@ grid = (
 )
 grid.render("grid_chart.html")
 ```
+
+<EChartsDemo :option="gridOption" />
 
 ### 多子图 Page
 
@@ -743,6 +773,8 @@ line = (
 line.render("numpy_line.html")
 ```
 
+<EChartsDemo :option="numpyLineOption" />
+
 ## 渲染与导出
 
 ### 渲染为 HTML
@@ -900,6 +932,8 @@ line = (
 line.render("accuracy_comparison.html")
 ```
 
+<EChartsDemo :option="accuracyLineOption" />
+
 ### 案例二：消融实验柱状图
 
 ```python
@@ -923,6 +957,8 @@ bar = (
 )
 bar.render("ablation_study.html")
 ```
+
+<EChartsDemo :option="ablationBarOption" />
 
 ### 案例三：双 Y 轴组合图
 
@@ -965,15 +1001,36 @@ bar.set_global_opts(
 bar.render("dual_axis_chart.html")
 ```
 
-## 实时渲染案例
+<EChartsDemo :option="dualAxisOption" />
 
-下面使用 ECharts 在前端直接渲染出与 PyECharts 配置等价的图表，作为案例展示。这些图表仅在浏览器中运行，不需要 Python 后端。
+## 渲染实现说明
+
+本文所有代码示例下方均通过自定义 `<EChartsDemo>` 组件，使用 ECharts 在前端直接渲染出与 PyECharts 配置等价的图表。这些图表仅在浏览器中运行，不需要 Python 后端。
 
 <script setup>
+import { ref, onMounted } from 'vue'
+
+// 第一个可运行示例
+const firstBarOption = {
+  title: { text: '2024 年季度销售统计', subtext: '单位：件', left: 'center' },
+  tooltip: { trigger: 'axis' },
+  toolbox: { show: true },
+  legend: { top: 45 },
+  grid: { top: 80 },
+  xAxis: { type: 'category', data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'] },
+  yAxis: { type: 'value' },
+  series: [
+    { name: '商家A', type: 'bar', data: [5, 20, 36, 10, 75, 90] },
+    { name: '商家B', type: 'bar', data: [15, 6, 45, 20, 35, 66] },
+  ],
+}
+
+// 分组柱状图
 const barOption = {
   title: { text: '季度销量对比', left: 'center' },
   tooltip: { trigger: 'axis' },
-  legend: { top: '8%' },
+  legend: { top: 45 },
+  grid: { top: 80 },
   xAxis: { type: 'category', data: ['Q1', 'Q2', 'Q3', 'Q4'], name: '季度' },
   yAxis: { type: 'value', name: '销量（件）' },
   series: [
@@ -983,10 +1040,40 @@ const barOption = {
   ],
 }
 
+// 堆叠柱状图
+const stackedBarOption = {
+  title: { text: '流量来源堆叠图', left: 'center' },
+  tooltip: { trigger: 'axis' },
+  legend: { top: 45 },
+  grid: { top: 80 },
+  xAxis: { type: 'category', data: ['Q1', 'Q2', 'Q3', 'Q4'], name: '季度' },
+  yAxis: { type: 'value', name: '访问量' },
+  series: [
+    { name: '直接访问', type: 'bar', stack: '总量', data: [320, 302, 301, 334] },
+    { name: '邮件营销', type: 'bar', stack: '总量', data: [120, 132, 101, 134] },
+    { name: '联盟广告', type: 'bar', stack: '总量', data: [220, 182, 191, 234] },
+  ],
+}
+
+// 水平柱状图
+const horizontalBarOption = {
+  title: { text: '编程语言流行度', left: 'center' },
+  tooltip: { trigger: 'axis' },
+  legend: { top: 45 },
+  grid: { top: 80 },
+  xAxis: { type: 'value' },
+  yAxis: { type: 'category', data: ['Python', 'Java', 'C++', 'Go', 'Rust'] },
+  series: [
+    { name: '2023', type: 'bar', data: [90, 80, 70, 60, 50], label: { show: true, position: 'right' } },
+  ],
+}
+
+// 基础折线图
 const lineOption = {
   title: { text: '月度业绩趋势', left: 'center' },
   tooltip: { trigger: 'axis' },
-  legend: { top: '8%' },
+  legend: { top: 45 },
+  grid: { top: 80 },
   xAxis: { type: 'category', data: ['1月', '2月', '3月', '4月', '5月', '6月'], name: '月份', boundaryGap: false },
   yAxis: { type: 'value', name: '金额（万元）' },
   series: [
@@ -995,6 +1082,39 @@ const lineOption = {
   ],
 }
 
+// 平滑曲线与面积图
+const smoothAreaLineOption = {
+  title: { text: '平滑面积图', left: 'center' },
+  tooltip: { trigger: 'axis' },
+  grid: { top: 50 },
+  xAxis: { type: 'category', data: ['1月', '2月', '3月', '4月', '5月', '6月'] },
+  yAxis: { type: 'value' },
+  series: [
+    {
+      name: '销售额',
+      type: 'line',
+      data: [120, 200, 150, 80, 70, 110],
+      smooth: true,
+      symbol: 'circle',
+      symbolSize: 8,
+      areaStyle: { opacity: 0.3 },
+    },
+  ],
+}
+
+// 阶梯图
+const stepLineOption = {
+  title: { text: '月度平均气温', left: 'center' },
+  tooltip: { trigger: 'axis' },
+  grid: { top: 50 },
+  xAxis: { type: 'category', data: ['1月', '2月', '3月', '4月', '5月', '6月'] },
+  yAxis: { type: 'value' },
+  series: [
+    { name: '温度', type: 'line', data: [5, 8, 12, 18, 24, 28], step: true },
+  ],
+}
+
+// 基础饼图
 const pieOption = {
   title: { text: '访问来源分布', left: 'center' },
   tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
@@ -1002,6 +1122,7 @@ const pieOption = {
     {
       type: 'pie',
       radius: '60%',
+      center: ['50%', '55%'],
       data: [
         { value: 335, name: '直接访问' },
         { value: 310, name: '邮件营销' },
@@ -1012,22 +1133,250 @@ const pieOption = {
     },
   ],
 }
+
+// 环形图
+const donutPieOption = {
+  title: { text: '环形图', left: 'center' },
+  tooltip: { trigger: 'item', formatter: '{b}: {d}%' },
+  series: [
+    {
+      type: 'pie',
+      radius: ['40%', '75%'],
+      center: ['50%', '55%'],
+      data: [
+        { value: 30, name: 'A' },
+        { value: 25, name: 'B' },
+        { value: 20, name: 'C' },
+        { value: 15, name: 'D' },
+        { value: 10, name: 'E' },
+      ],
+      label: { formatter: '{b}: {d}%' },
+    },
+  ],
+}
+
+// 南丁格尔玫瑰图
+const rosePieOption = {
+  title: { text: '玫瑰图', left: 'center' },
+  tooltip: { trigger: 'item' },
+  series: [
+    {
+      type: 'pie',
+      roseType: 'radius',
+      radius: ['30%', '75%'],
+      center: ['50%', '55%'],
+      data: [
+        { value: 10, name: 'A' },
+        { value: 20, name: 'B' },
+        { value: 30, name: 'C' },
+        { value: 40, name: 'D' },
+        { value: 50, name: 'E' },
+      ],
+    },
+  ],
+}
+
+// 散点图（使用固定随机数据模拟 Python random）
+const scatterData = Array.from({ length: 50 }, () => {
+  const x = Math.floor(Math.random() * 100)
+  const y = Math.floor(Math.random() * 100)
+  const s = Math.floor(Math.random() * 40 + 10)
+  return [x, y, s]
+})
+
+const scatterOption = {
+  title: { text: '气泡散点图', left: 'center' },
+  tooltip: { trigger: 'item' },
+  grid: { top: 50 },
+  xAxis: { type: 'value', name: 'X 变量' },
+  yAxis: { type: 'value', name: 'Y 变量' },
+  visualMap: {
+    min: 10,
+    max: 50,
+    dimension: 2,
+    inRange: { color: ['#50a3ba', '#eac736', '#d94e5d'] },
+  },
+  series: [
+    {
+      name: '样本',
+      type: 'scatter',
+      data: scatterData,
+      symbolSize: (data) => data[2] / 2,
+    },
+  ],
+}
+
+// 雷达图
+const radarOption = {
+  title: { text: '能力雷达图', left: 'center' },
+  tooltip: {},
+  legend: { top: 45 },
+  grid: { top: 80 },
+  radar: {
+    center: ['50%', '55%'],
+    indicator: [
+      { name: '进攻', max: 100 },
+      { name: '防守', max: 100 },
+      { name: '速度', max: 100 },
+      { name: '技巧', max: 100 },
+      { name: '体能', max: 100 },
+    ],
+  },
+  series: [
+    {
+      type: 'radar',
+      data: [
+        { value: [85, 70, 90, 80, 75], name: '球员A' },
+        { value: [70, 90, 75, 85, 80], name: '球员B' },
+      ],
+    },
+  ],
+}
+
+// 热力图
+const heatmapOption = {
+  title: { text: '用户活跃热力图', left: 'center' },
+  tooltip: {},
+  grid: { top: 50 },
+  visualMap: { min: 0, max: 10 },
+  xAxis: { type: 'category', data: ['12a', '1a', '2a', '3a', '4a', '5a', '6a'] },
+  yAxis: { type: 'category', data: ['周六', '周五', '周四', '周三', '周二', '周一', '周日'] },
+  series: [
+    {
+      name: '活跃度',
+      type: 'heatmap',
+      data: [
+        [0, 0, 5], [0, 1, 1], [0, 2, 0], [0, 3, 0],
+        [1, 0, 7], [1, 1, 0], [1, 2, 0], [1, 3, 0],
+        [2, 0, 3], [2, 1, 1], [2, 2, 0], [2, 3, 0],
+      ],
+      label: { show: true },
+    },
+  ],
+}
+
+// 地图（需要异步注册中国地图数据）
+const mapReady = ref(false)
+const mapOption = {
+  title: { text: '2022 年各省 GDP（亿元）', left: 'center' },
+  tooltip: { trigger: 'item' },
+  visualMap: { min: 50000, max: 130000 },
+  series: [
+    {
+      name: 'GDP',
+      type: 'map',
+      map: 'china',
+      data: [
+        { name: '广东', value: 124369 },
+        { name: '江苏', value: 116364 },
+        { name: '山东', value: 83095 },
+        { name: '浙江', value: 73516 },
+      ],
+    },
+  ],
+}
+
+onMounted(async () => {
+  const echarts = await import('echarts')
+  try {
+    const res = await fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json')
+    const json = await res.json()
+    echarts.registerMap('china', json)
+    mapReady.value = true
+  } catch (e) {
+    console.error('加载中国地图数据失败', e)
+  }
+})
+
+// 直角坐标系 Grid（左右双图）
+const gridOption = {
+  tooltip: { trigger: 'axis' },
+  grid: [
+    { left: '5%', right: '55%', top: 50 },
+    { left: '60%', right: '5%', top: 50 },
+  ],
+  xAxis: [
+    { gridIndex: 0, type: 'category', data: ['1月', '2月', '3月', '4月', '5月', '6月'] },
+    { gridIndex: 1, type: 'category', data: ['1月', '2月', '3月', '4月', '5月', '6月'] },
+  ],
+  yAxis: [
+    { gridIndex: 0, type: 'value' },
+    { gridIndex: 1, type: 'value' },
+  ],
+  series: [
+    { name: '销售额', type: 'bar', xAxisIndex: 0, yAxisIndex: 0, data: [120, 200, 150, 80, 70, 110] },
+    { name: '增长率', type: 'line', xAxisIndex: 1, yAxisIndex: 1, data: [10, 20, 15, -5, -8, 12] },
+  ],
+}
+
+// 从 NumPy 读取数据（模拟 np.linspace + np.sin）
+const numpyX = Array.from({ length: 50 }, (_, i) => (10 * i) / 49)
+const numpyY = numpyX.map((x) => Math.sin(x))
+const numpyLineOption = {
+  tooltip: { trigger: 'axis' },
+  grid: { top: 50 },
+  xAxis: { type: 'category', data: numpyX.map((v) => v.toFixed(2)) },
+  yAxis: { type: 'value' },
+  series: [{ name: 'sin(x)', type: 'line', data: numpyY, showSymbol: false }],
+}
+
+// 案例一：实验对比折线图
+const epochsArr = Array.from({ length: 20 }, (_, i) => i + 1)
+const methodAArr = [0.65, 0.72, 0.78, 0.82, 0.85, 0.87, 0.89, 0.90, 0.91, 0.92, 0.92, 0.93, 0.93, 0.94, 0.94, 0.95, 0.95, 0.95, 0.96, 0.96]
+const methodBArr = [0.60, 0.68, 0.74, 0.79, 0.82, 0.84, 0.86, 0.87, 0.88, 0.89, 0.89, 0.90, 0.90, 0.91, 0.91, 0.92, 0.92, 0.92, 0.93, 0.93]
+const methodCArr = [0.55, 0.62, 0.68, 0.73, 0.77, 0.80, 0.82, 0.84, 0.85, 0.86, 0.86, 0.87, 0.87, 0.88, 0.88, 0.89, 0.89, 0.89, 0.90, 0.90]
+const accuracyLineOption = {
+  title: { text: '不同方法的准确率收敛曲线', left: 'center' },
+  tooltip: { trigger: 'axis' },
+  legend: { top: 45 },
+  grid: { top: 80 },
+  toolbox: { feature: { saveAsImage: { pixelRatio: 2 } } },
+  xAxis: { type: 'value', name: '训练轮次' },
+  yAxis: { type: 'value', name: '准确率', min: 0.5, max: 1.0 },
+  series: [
+    { name: '方法 A', type: 'line', smooth: true, symbolSize: 6, data: epochsArr.map((x, i) => [x, methodAArr[i]]) },
+    { name: '方法 B', type: 'line', smooth: true, symbolSize: 6, data: epochsArr.map((x, i) => [x, methodBArr[i]]) },
+    { name: '方法 C', type: 'line', smooth: true, symbolSize: 6, data: epochsArr.map((x, i) => [x, methodCArr[i]]) },
+  ],
+}
+
+// 案例二：消融实验柱状图
+const ablationBarOption = {
+  title: { text: '消融实验结果', left: 'center' },
+  tooltip: { trigger: 'axis' },
+  grid: { top: 50 },
+  xAxis: { type: 'category', data: ['基线', '+ 模块 A', '+ 模块 B', '+ 模块 A+B'], name: '模型配置' },
+  yAxis: { type: 'value', name: '准确率（%）', min: 75, max: 95 },
+  series: [
+    {
+      name: '准确率',
+      type: 'bar',
+      data: [82, 86, 88, 91],
+      label: { show: true, position: 'top', formatter: '{c}%' },
+    },
+  ],
+}
+
+// 案例三：双 Y 轴组合图
+const dualAxisOption = {
+  title: { text: '销售额与增长率', left: 'center' },
+  tooltip: { trigger: 'axis' },
+  legend: { top: 45 },
+  grid: { top: 80 },
+  xAxis: { type: 'category', data: ['1月', '2月', '3月', '4月', '5月', '6月'] },
+  yAxis: [
+    { type: 'value', name: '销售额（万元）' },
+    { type: 'value', name: '增长率（%）', position: 'right' },
+  ],
+  series: [
+    { name: '销售额', type: 'bar', data: [120, 200, 150, 80, 70, 110], yAxisIndex: 0 },
+    { name: '增长率', type: 'line', data: [10, 66, -25, -47, -12, 57], yAxisIndex: 1 },
+  ],
+}
 </script>
 
-### 分组柱状图
-
-<EChartsDemo :option="barOption" />
-
-### 平滑折线图
-
-<EChartsDemo :option="lineOption" />
-
-### 基础饼图
-
-<EChartsDemo :option="pieOption" />
-
 :::tip
-上面的图表由自定义 `<EChartsDemo>` 组件通过 ECharts 在前端实时渲染。你可以悬停查看数据、点击图例隐藏系列，体验与 PyECharts 生成的 HTML 文件一致的交互效果。
+本文所有代码示例下方的图表均由自定义 `<EChartsDemo>` 组件通过 ECharts 在前端实时渲染。你可以悬停查看数据、点击图例隐藏系列，体验与 PyECharts 生成的 HTML 文件一致的交互效果。
 :::
 
 ## 常见问题与排查
