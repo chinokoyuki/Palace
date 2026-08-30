@@ -300,16 +300,18 @@ void Point::setY(int val) {
 
 构造函数在对象创建时自动调用，用于初始化成员变量。它的名字与类名相同，没有返回值类型。
 
+调用默认构造函数时候，不要加()
+
 ```cpp
 class Person {
 public:
-    // 无参构造
+    // 无参构造 / 默认构造
     Person() : name("无名"), age(0) {}
 
     // 有参构造
     Person(const string& n, int a) : name(n), age(a) {}
 
-    // 拷贝构造
+    // 拷贝构造， 需要加const
     Person(const Person& other) : name(other.name), age(other.age) {}
 
     void display() const {

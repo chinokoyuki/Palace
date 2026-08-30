@@ -102,7 +102,7 @@ const pythonSideBar: BookSection[] = [
       { text: '格式化字符串', link: '/book/python/grammar/11_formatted_strings' },
       { text: '函数', link: '/book/python/grammar/12_functions' },
       { text: '引入模块', link: '/book/python/grammar/13_importing_modules' },
-      { text: '类', link: '/book/python/grammar/14_classes' },
+      { text: '类与对象', link: '/book/python/grammar/14_classes' },
       { text: '文件', link: '/book/python/grammar/15_files' },
       { text: '报错处理', link: '/book/python/grammar/16_exceptions' },
       { text: '测试', link: '/book/python/grammar/17_testing' },

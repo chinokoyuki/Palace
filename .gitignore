@@ -9,3 +9,4 @@ docs/.vitepress/cache
 .idea
 .vscode/*
 !.vscode/extensions.json
+.workbuddy
